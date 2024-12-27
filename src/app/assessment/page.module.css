@@ -19,7 +19,8 @@
   width: 50%;
 }
 
-.intro {
+.intro,
+.introTitle {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -49,10 +50,37 @@ button.primary {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  width: 80%;
+  margin: auto;
 }
 
 .form div {
   display: flex;
   flex-direction: column;
+}
+
+.form input:not([type="file"]) {
+  height: 32px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.form select {
+  height: 32px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 0 8px;
+}
+.form textarea {
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+@media (max-width: 720) {
+  .main {
+    width: 90%;
+  }
 }
