@@ -40,7 +40,6 @@ export default async function LeadsPage() {
           priority
         />
         <div className={styles.sidebarContent}>
-          <h2>Sidebar</h2>
           <ul>
             <div>
               <li>Leads</li>
