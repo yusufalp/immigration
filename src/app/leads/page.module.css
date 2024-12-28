@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 75vh;
+  height: 82vh;
   margin: 12px 0;
   padding: 0;
   list-style-type: none;
@@ -70,6 +70,7 @@
   border-radius: 12px;
   border-style: hidden;
   box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.2);
+  font-size: 18px;
 }
 
 .leadsTable td,
@@ -79,7 +80,7 @@
 
 .leadsTable td,
 .leadsTable th {
-  padding: 6px;
+  padding: 12px 16px;
 }
 
 .leadsTable button {

@@ -43,3 +43,9 @@
   background: var(--foreground);
   color: var(--background);
 }
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

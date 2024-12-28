@@ -28,6 +28,10 @@
   width: 50%;
 }
 
+.introDescription {
+  text-align: center;
+}
+
 .intro,
 .introTitle,
 .logo {
@@ -134,7 +138,7 @@ button.primary {
   opacity: 0;
 }
 
-.visaTypes input:checked+span:after {
+.visaTypes input:checked + span:after {
   opacity: 1;
 }
 
