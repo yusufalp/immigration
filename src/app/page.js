@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,13 +7,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.welcome}>Welcome to Alma</h1>
         <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="/assessment" className={styles.primary}>
             Get Started
-          </a>
+          </Link>
         </div>
       </main>
     </div>
