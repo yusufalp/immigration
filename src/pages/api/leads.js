@@ -1,4 +1,4 @@
-let leads = []; // Temporary in-memory storage. Replace with a database in production.
+let leads = []; // Temporary in-memory storage.
 
 export default function handler(req, res) {
   if (req.method === "GET") {
@@ -24,7 +24,7 @@ export default function handler(req, res) {
       !message ||
       !submittedDate
     ) {
-      return res.status(400).json({ error: "All fields are required." });
+      return res.status(400).json({ error: "These fields are required." });
     }
 
     const newLead = {
