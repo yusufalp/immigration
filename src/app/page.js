@@ -10,6 +10,9 @@ export default function Home() {
           <Link href="/assessment" className={styles.primary}>
             Get Started
           </Link>
+          <Link href="/login" className={styles.primary}>
+            Admin Login
+          </Link>
         </div>
       </main>
     </div>
