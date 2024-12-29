@@ -148,9 +148,9 @@ export default function LeadsTable({ leads }) {
                   {lead.status === "PENDING" && (
                     <button
                       onClick={() => handleStateChange(lead.id)}
-                      className={styles.button}
+                      className={styles.primary}
                     >
-                      Reached Out
+                      Mark as Reached Out
                     </button>
                   )}
                 </td>
