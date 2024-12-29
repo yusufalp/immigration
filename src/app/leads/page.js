@@ -1,32 +1,51 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+
 import LeadsTable from "./components/LeadsTable/LeadsTable";
 import styles from "./page.module.css";
 
-async function isAuthenticated() {
-  console.log(localStorage.getItem("authToken"));
-  return localStorage.getItem("authToken");
-}
+export default function LeadsPage() {
+  const [leads, setLeads] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
-async function fetchLeads() {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/leads`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch leads");
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      router.push("/login");
+    } else {
+      fetchLeads();
     }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching leads:", error);
-  }
-}
+  }, [router]);
 
-export default async function LeadsPage() {
-  if (!isAuthenticated()) {
-    return <p>You must be logged in to view this page.</p>;
+  async function fetchLeads() {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/leads`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch leads");
+      }
+      const data = await response.json();
+
+      setLeads(data);
+    } catch (error) {
+      console.error("Error fetching leads:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
-  let leads = await fetchLeads();
-  console.log("leads :>> ", leads);
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    router.push("/");
+  };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className={styles.page}>
@@ -47,6 +66,7 @@ export default async function LeadsPage() {
             </div>
             <div>
               <li>Admin</li>
+              <li onClick={handleLogout}>Logout</li>
             </div>
           </ul>
         </div>

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import styles from "./page.module.css";
+
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,31 +22,38 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
+    <div className={styles.page}>
+      <div className={styles.main}>
+        <form onSubmit={handleLogin} className={styles.form}>
+          <div>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.submit}>
+            <button className={styles.primary} type="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
