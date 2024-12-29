@@ -58,6 +58,10 @@
   list-style-type: none;
 }
 
+.sidebar ul li {
+  cursor: pointer;
+}
+
 .logo {
   margin: 0;
   padding: 0;
@@ -87,4 +91,24 @@
   color: var(--foreground);
   background: var(--background);
   border: none;
+}
+
+.ctas button {
+  border-radius: 8px;
+  height: 24px;
+  border: none;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 3px;
+}
+
+button.primary {
+  background: var(--foreground);
+  color: var(--background);
 }
